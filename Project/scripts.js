@@ -40,6 +40,7 @@ function displayCards(movies) {
 }
 
 // Sorting functions
+//a-z
 document.getElementById("sort-asc").addEventListener("click", function (e) {
   e.preventDefault();
   const sortedMovies = [...window.movies].sort((a, b) =>
@@ -47,7 +48,7 @@ document.getElementById("sort-asc").addEventListener("click", function (e) {
   );
   displayCards(sortedMovies);
 });
-
+//z-a
 document.getElementById("sort-desc").addEventListener("click", function (e) {
   e.preventDefault();
   const sortedMovies = [...window.movies].sort((a, b) =>
@@ -55,7 +56,7 @@ document.getElementById("sort-desc").addEventListener("click", function (e) {
   );
   displayCards(sortedMovies);
 });
-
+//searchbar
 document.getElementById("search-bar").addEventListener("input", function () {
   const searchValue = this.value.toLowerCase();
   const filteredMovies = window.movies.filter((movie) =>
@@ -63,7 +64,7 @@ document.getElementById("search-bar").addEventListener("input", function () {
   );
   displayCards(filteredMovies);
 });
-
+//most recent release
 document.getElementById("sort-recent").addEventListener("click", function (e) {
   e.preventDefault();
   const sortedMovies = [...window.movies].sort(
@@ -71,7 +72,7 @@ document.getElementById("sort-recent").addEventListener("click", function (e) {
   );
   displayCards(sortedMovies);
 });
-
+//oldest release
 document.getElementById("sort-oldest").addEventListener("click", function (e) {
   e.preventDefault();
   const sortedMovies = [...window.movies].sort(
