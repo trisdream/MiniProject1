@@ -74,6 +74,15 @@ nav img {
   margin-right: 10px;
 }
 
+nav input[type="text"] {
+  padding: 5px;
+  margin-left: 20px;
+  border: 1px solid #47474785;
+  border-radius: 4px;
+  height: 40px;
+  background-color: #ffffff00;
+}
+
 nav span {
   margin-right: 10px;
   color: #666;
@@ -95,7 +104,7 @@ nav span {
 
 .movie-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -104,6 +113,7 @@ nav span {
   margin: 1rem;
   position: relative;
   height: 300px;
+  min-width: 250px;
 }
 
 .card-inner {
@@ -112,6 +122,8 @@ nav span {
   height: 100%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  display: flex;
+  padding: 10px;
 }
 
 .card:hover .card-inner {
@@ -128,16 +140,22 @@ nav span {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
 }
 
 .card-front {
   flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .card-back {
   transform: rotateY(180deg);
   padding: 10px;
   overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
 }
 .card-back p {
   margin: 0;
@@ -149,4 +167,16 @@ nav span {
   max-width: 100%;
   object-fit: contain;
   margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 1 calc(45% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 0 1 100%;
+  }
 }

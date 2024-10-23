@@ -52,3 +52,11 @@ document.getElementById("sort-desc").addEventListener("click", function (e) {
   );
   displayCards(sortedMovies);
 });
+
+document.getElementById("search-bar").addEventListener("input", function () {
+  const searchValue = this.value.toLowerCase();
+  const filteredMovies = window.movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchValue)
+  );
+  displayCards(filteredMovies);
+});
