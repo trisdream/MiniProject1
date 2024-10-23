@@ -21,22 +21,25 @@ function displayCards(movies) {
 
   movies.forEach((movie) => {
     const card = `
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="${movie.image}" class="card-img-top" alt="${movie.title}">
-                        <h5 class="card-title">${movie.title}</h5>
-                    </div>
-                    <div class="card-back">
-                        <p>${movie.description}</p>
-                    </div>
-                </div>
-            </div>`;
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="${movie.image}" class="card-img-top" alt="${movie.title}">
+            <h4 class="card-title">${movie.title}</h4>
+            <p>Director: ${movie.director}</p>
+          </div>
+          <div class="card-back">
+            <h4 class="card-title">${movie.title}</h4>
+            <p>Release Date: ${movie.release_date}</p>
+            <p>${movie.description}</p>
+          </div>
+        </div>
+      </div>`;
     movieContainer.innerHTML += card;
   });
 }
 
-// Sorting functionality
+// Sorting functions
 document.getElementById("sort-asc").addEventListener("click", function (e) {
   e.preventDefault();
   const sortedMovies = [...window.movies].sort((a, b) =>
@@ -49,6 +52,30 @@ document.getElementById("sort-desc").addEventListener("click", function (e) {
   e.preventDefault();
   const sortedMovies = [...window.movies].sort((a, b) =>
     b.title.localeCompare(a.title)
+  );
+  displayCards(sortedMovies);
+});
+
+document.getElementById("search-bar").addEventListener("input", function () {
+  const searchValue = this.value.toLowerCase();
+  const filteredMovies = window.movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchValue)
+  );
+  displayCards(filteredMovies);
+});
+
+document.getElementById("sort-recent").addEventListener("click", function (e) {
+  e.preventDefault();
+  const sortedMovies = [...window.movies].sort(
+    (a, b) => new Date(b.release_date) - new Date(a.release_date)
+  );
+  displayCards(sortedMovies);
+});
+
+document.getElementById("sort-oldest").addEventListener("click", function (e) {
+  e.preventDefault();
+  const sortedMovies = [...window.movies].sort(
+    (a, b) => new Date(a.release_date) - new Date(b.release_date)
   );
   displayCards(sortedMovies);
 });
