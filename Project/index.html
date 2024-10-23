@@ -3,16 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ghibli App</title>
-    <link href="styles.css" rel="stylesheet" />
+    <title>Studio Ghibli Films</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Filter</a>
+          <ul class="dropdown">
+            <li><a href="#" id="sort-asc">A-Z</a></li>
+            <li><a href="#" id="sort-desc">Z-A</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
     <header>
-      <h1>Ghibli Movies</h1>
+      <img src="logo.png" alt="Studio Ghibli logo" />
     </header>
-    <main>
-      <div class="container"></div>
-    </main>
+
+    <div id="movie-container" class="movie-container"></div>
+
     <script src="scripts.js"></script>
   </body>
 </html>
